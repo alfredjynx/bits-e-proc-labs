@@ -17,7 +17,7 @@ def toplevel(LEDR, SW, KEY, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, CLOCK_50, RESET_
     # comb
     # ---------------------------------------- #
     # ic1 = exe4(ledr_s, SW)
-    # ic2 = exe5(ledr_s, SW)
+    ic2 = exe5(ledr_s, SW)
     # ic2 = sw2hex(HEX0, SW)
     # ic3 = bin2hex(HEX1, SW)
 
