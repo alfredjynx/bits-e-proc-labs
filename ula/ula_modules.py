@@ -76,22 +76,42 @@ def adder2bits(x, y, soma, carry):
 
 @block
 def adder(x, y, soma, carry):
-    n = len(x)
-    faList = [None for i in range(n)]
-    carryList = [Signal(bool(0)) for i in range(n)]
-    somaList = [Signal(bool(0)) for i in range(n)]
+    # n = len(x)
+    # faList = [None for i in range(n)]
+    # carryList = [Signal(bool(0)) for i in range(n)]
+    # somaList = [Signal(bool(0)) for i in range(n)]
 
-    # faList[0] = fullAdder(x[0],y[0],0,soma[0],carryList[0])
+    # for i in range(n):
+    #     faList[i] = fullAdder(x[i],y[i],(0 if i==0 else carryList[i-1]),somaList[i],carryList[i])
 
-    for i in range(n):
-        faList[i] = fullAdder(x[i],y[i],(0 if i==0 else carryList[i-1]),somaList[i],carryList[i])
-
+    # @always_comb
+    # def comb():
+    #     carry.next = carryList[n-1]
+    #     for i in range(n):
+    #         soma[i].next = somaList[i]
 
     @always_comb
     def comb():
-        carry.next = carryList[n-1]
-        for i in range(n):
-            soma[i].next = somaList[i]
+        sum = x + y
+        soma.next = sum
+        if sum > x.max - 1:
+            carry.next = 1
+        else:
+            carry.next = 0
         
  
     return instances()
+
+@block
+def adderIntbv(x, y, soma, carry):
+    
+    @always_comb
+    def comb():
+        sum = x + y
+        soma.next = sum
+        if sum > x.max - 1:
+            carry.next = 1
+        else:
+            carry.next = 0
+
+    return comb

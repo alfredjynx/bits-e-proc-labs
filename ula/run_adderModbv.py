@@ -11,7 +11,7 @@ def runAdderModbv():
     s = Signal(modbv()[2:])
     c = Signal(bool())
 
-    dut = adderModbv(x, y, s, c)
+    dut = adderIntbv(x, y, s, c)
 
     @instance
     def stimulus():
@@ -55,3 +55,12 @@ def runBcd():
 
 tb = runAdderModbv()
 tb.run_sim()
+
+@block
+def runAdder():
+    x = Signal(modbv()[2:])
+    y = Signal(modbv()[2:])
+    s = Signal(modbv()[2:])
+    c = Signal(bool())
+
+    dut = adderIntbv(x, y, s, c)
