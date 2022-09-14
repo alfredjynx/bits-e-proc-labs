@@ -11,7 +11,11 @@ def runAdderModbv():
     s = Signal(modbv()[2:])
     c = Signal(bool())
 
+<<<<<<< HEAD
     dut = adderIntbv(x, y, s, c)
+=======
+    dut = adder(x, y, s, c)
+>>>>>>> upstream/main
 
     @instance
     def stimulus():
