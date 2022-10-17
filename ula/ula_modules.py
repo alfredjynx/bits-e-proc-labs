@@ -79,16 +79,13 @@ def adder(x, y, soma, carry):
     # n = len(x)
     # faList = [None for i in range(n)]
     # carryList = [Signal(bool(0)) for i in range(n)]
-    # somaList = [Signal(bool(0)) for i in range(n)]
 
     # for i in range(n):
-    #     faList[i] = fullAdder(x[i],y[i],(0 if i==0 else carryList[i-1]),somaList[i],carryList[i])
+    #     faList[i] = fullAdder(x[i],y[i],(0 if i==0 else carryList[i-1]),soma[i],carryList[i])
 
     # @always_comb
     # def comb():
     #     carry.next = carryList[n-1]
-    #     for i in range(n):
-    #         soma[i].next = somaList[i]
 
     @always_comb
     def comb():

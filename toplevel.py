@@ -17,12 +17,12 @@ def toplevel(LEDR, SW, KEY, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, CLOCK_50, RESET_
     # comb
     # ---------------------------------------- #
     # ic1 = exe4(ledr_s, SW)
-    ic2 = exe5(ledr_s, SW)
-    ic2 = sw2hex(HEX0, SW)
-    ic3 = bin2hex(HEX1, SW)
+    # ic2 = exe5(ledr_s, SW)
+    # ic2 = sw2hex(HEX0, SW)
+    # ic3 = bin2hex(HEX1, SW)
 
-    ic1 = adder(sw[0:4], sw[6:10], ledr_s[0:4], ledr_s[9])
-    ic2 = bin2hex(HEX0, ledr_bin)
+    # ic1 = adder(sw[0:4], sw[6:10], ledr_s[0:4], ledr_s[9])
+    # ic2 = bin2hex(HEX0, ledr_bin)
 
 
     # ---------------------------------------- #
@@ -47,13 +47,13 @@ def toplevel(LEDR, SW, KEY, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, CLOCK_50, RESET_
     # ic4 = blinkLed(ledr_s[2], 1000, CLOCK_50, RESET_N)
 
     # ----- Comentar o always_comb ------------#
-    # ic5 = barLed(LEDR, CLOCK_50, RESET_N)
+    ic5 = barLed(LEDR, CLOCK_50, RESET_N)
     # ic6 = barLed2(LEDR, CLOCK_50, RESET_N)
     # ---------------------------------------- #
-    @always_comb
-    def comb():
-        for i in range(len(ledr_s)):
-            LEDR[i].next = ledr_s[i]
+    # @always_comb
+    # def comb():
+    #     for i in range(len(ledr_s)):
+    #         LEDR[i].next = ledr_s[i]
 
     return instances()
 
